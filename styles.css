@@ -177,15 +177,18 @@ nav .container {
 
 .meme-images {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .meme-images img {
     width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
     border-radius: 15px;
+    border: 2px solid rgba(243, 186, 47, 0.2);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
