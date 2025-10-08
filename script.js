@@ -52,3 +52,33 @@ document.querySelectorAll('section').forEach(section => {
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
 });
+
+// Image modal functionality
+const memeImages = document.querySelectorAll('.meme-images img');
+const modal = document.createElement('div');
+modal.className = 'image-modal';
+modal.innerHTML = '<span class="modal-close">&times;</span><img class="modal-content" src="" alt="">';
+document.body.appendChild(modal);
+
+const modalImg = modal.querySelector('.modal-content');
+const modalClose = modal.querySelector('.modal-close');
+
+memeImages.forEach(img => {
+    img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
